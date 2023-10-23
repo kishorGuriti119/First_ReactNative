@@ -26,5 +26,6 @@ export const style = StyleSheet.create({
   },
   AuthFooter: {
     marginVertical: 24,
+    marginBottom:54
   },
 });

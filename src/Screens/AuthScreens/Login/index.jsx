@@ -8,7 +8,11 @@ import Separator from '../../../Components/Separator/inex';
 import GoogleAuth from '../../../Components/GoogleAuth';
 import AuthFooter from '../../../Components/AuthFooter';
 
-const Login = () => {
+const Login = ({navigation}) => {
+  const onSignUp = () => {
+    navigation.navigate('SIGNUP');
+  };
+
   return (
     <View style={style.signinContainer}>
       <AuthHeader title="Sign In" />
@@ -23,7 +27,11 @@ const Login = () => {
       </View>
       <GoogleAuth />
       <View style={style.AuthFooterContainer}>
-        <AuthFooter text="Sign Up" prefix="Don’t have an account? " />
+        <AuthFooter
+          onPress={onSignUp}
+          text="Sign Up"
+          prefix="Don’t have an account? "
+        />
       </View>
     </View>
   );
