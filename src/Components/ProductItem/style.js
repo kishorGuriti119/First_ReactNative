@@ -11,7 +11,7 @@ export const style = StyleSheet.create({
   ProductImage: {
     width: (width - 60) / 2,
     height: 200,
-    borderRadius:14
+    borderRadius: 14,
   },
   ProductName: {
     color: colors.produtText,

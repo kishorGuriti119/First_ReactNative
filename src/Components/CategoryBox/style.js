@@ -19,4 +19,9 @@ export const style = StyleSheet.create({
     borderRadius: 8,
     marginBottom: 8,
   },
+  label: {
+    fontFamily: 'Nunito Sans',
+    fontWeight: '400',
+    color: colors.categoryLable,
+  },
 });
