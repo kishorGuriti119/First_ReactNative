@@ -9,8 +9,13 @@ import Separator from '../../../Components/Separator/inex';
 import GoogleAuth from '../../../Components/GoogleAuth';
 import AuthFooter from '../../../Components/AuthFooter';
 
-const SignUp = () => {
+const SignUp = ({navigation}) => {
   const [isChecked, setIsChecked] = useState(true);
+
+  const OnSignIn = () => {
+    navigation.navigate('SIGNIN');
+  };
+
   return (
     <ScrollView style={style.signupContainer}>
       <AuthHeader title="Sign Up" />
@@ -30,7 +35,11 @@ const SignUp = () => {
       </View>
       <GoogleAuth />
       <View style={style.AuthFooter}>
-        <AuthFooter text="Sign In" prefix="Already have an account?" />
+        <AuthFooter
+          onPress={OnSignIn}
+          text="Sign In"
+          prefix="Already have an account?"
+        />
       </View>
     </ScrollView>
   );

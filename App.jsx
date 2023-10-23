@@ -12,8 +12,20 @@ import Login from './src/Screens/AuthScreens/Login';
 import SplashScreen from './src/Screens/AuthScreens/SplashScreen';
 import {GoogleSignin} from '@react-native-google-signin/google-signin';
 import Config from 'react-native-config';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {colors} from './src/utility/colors';
+
+const Stack = createNativeStackNavigator();
 
 function App() {
+  const Mytheme = {
+    dark: false,
+    colors: {
+      background: colors.white,
+    },
+  };
+
   useEffect(() => {
     GoogleSignin.configure({
       scopes: ['https://www.googleapis.com/auth/drive.readonly'], // what API you want to access on behalf of the user, default is email and profile
@@ -26,11 +38,15 @@ function App() {
   }, []);
 
   return (
-    <SafeAreaView>
-      <SignUp />
-      {/* <Login /> */}
-      {/* <SplashScreen />  */}
-    </SafeAreaView>
+    // <SafeAreaView>
+    <NavigationContainer theme={Mytheme}>
+      <Stack.Navigator>
+        <Stack.Screen name="SPLASH" component={SplashScreen} />
+        <Stack.Screen name="SIGNUP" component={SignUp} />
+        <Stack.Screen name="SIGNIN" component={Login} />
+      </Stack.Navigator>
+    </NavigationContainer>
+    // </SafeAreaView>
   );
 }
 

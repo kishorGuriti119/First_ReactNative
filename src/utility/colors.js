@@ -6,4 +6,5 @@ export const colors = {
   inputborder: '#8D9BB5',
   separatorlinetext: '#DADADA',
   googleAuthBackground: '#3F4A59',
+  white: '#FFFFFF',
 };
