@@ -9,4 +9,6 @@ export const colors = {
   white: '#FFFFFF',
   fonttextColor: '#303030',
   grey: '#DADADA',
+  produtText: '#606060',
+  priceText: '#303030',
 };
