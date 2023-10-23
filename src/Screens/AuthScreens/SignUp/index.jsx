@@ -16,9 +16,13 @@ const SignUp = ({navigation}) => {
     navigation.navigate('SIGNIN');
   };
 
+  const goBack = () => {
+    navigation.goBack();
+  };
+
   return (
     <ScrollView style={style.signupContainer}>
-      <AuthHeader title="Sign Up" />
+      <AuthHeader title="Sign Up" onBackPress={goBack} />
       <Input label="Name" placeholder="kishor guriti" />
       <Input label="E-mail" placeholder="kishorguriti119@gmail.com" />
       <Input label="password" placeholder="******" isPassword />

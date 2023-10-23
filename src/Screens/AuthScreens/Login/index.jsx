@@ -7,15 +7,23 @@ import Button from '../../../Components/Button';
 import Separator from '../../../Components/Separator/inex';
 import GoogleAuth from '../../../Components/GoogleAuth';
 import AuthFooter from '../../../Components/AuthFooter';
+import {
+  SafeAreaProvider,
+  useSafeAreaInsets,
+} from 'react-native-safe-area-context';
 
 const Login = ({navigation}) => {
   const onSignUp = () => {
     navigation.navigate('SIGNUP');
   };
 
+  const goBack = () => {
+    navigation.goBack();
+  };
+
   return (
     <View style={style.signinContainer}>
-      <AuthHeader title="Sign In" />
+      <AuthHeader title="Sign In" onBackPress={goBack} />
       <Input label="E-Mail" placeholder="Kishor Guriti" />
       <Input label="Password" placeholder="*********" isPassword />
 

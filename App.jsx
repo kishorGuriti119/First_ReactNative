@@ -6,7 +6,6 @@
  */
 
 import React, {useEffect} from 'react';
-import {SafeAreaView} from 'react-native';
 import SignUp from './src/Screens/AuthScreens/SignUp';
 import Login from './src/Screens/AuthScreens/Login';
 import SplashScreen from './src/Screens/AuthScreens/SplashScreen';
@@ -15,10 +14,14 @@ import Config from 'react-native-config';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {colors} from './src/utility/colors';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
 
+import Tabs from './src/Components/Tabs';
 const Stack = createNativeStackNavigator();
 
 function App() {
+  const isLoggedIn = 'e';
+
   const Mytheme = {
     dark: false,
     colors: {
@@ -38,15 +41,39 @@ function App() {
   }, []);
 
   return (
-    // <SafeAreaView>
-    <NavigationContainer theme={Mytheme}>
-      <Stack.Navigator>
-        <Stack.Screen name="SPLASH" component={SplashScreen} />
-        <Stack.Screen name="SIGNUP" component={SignUp} />
-        <Stack.Screen name="SIGNIN" component={Login} />
-      </Stack.Navigator>
-    </NavigationContainer>
-    // </SafeAreaView>
+    <SafeAreaProvider>
+      <NavigationContainer theme={Mytheme}>
+        <Stack.Navigator>
+          {isLoggedIn ? (
+            <>
+              <Stack.Screen
+                name="Tabs"
+                component={Tabs}
+                options={{headerShown: false}}
+              />
+            </>
+          ) : (
+            <>
+              <Stack.Screen
+                name="SPLASH"
+                component={SplashScreen}
+                options={{headerShown: false}}
+              />
+              <Stack.Screen
+                name="SIGNUP"
+                component={SignUp}
+                options={{headerShown: false}}
+              />
+              <Stack.Screen
+                name="SIGNIN"
+                component={Login}
+                options={{headerShown: false}}
+              />
+            </>
+          )}
+        </Stack.Navigator>
+      </NavigationContainer>
+    </SafeAreaProvider>
   );
 }
 
