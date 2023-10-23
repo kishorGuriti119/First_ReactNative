@@ -2,21 +2,22 @@ import {StyleSheet} from 'react-native';
 import {colors} from '../../utility/colors';
 export const style = StyleSheet.create({
   container: {
-    padding: 14,
+    // padding: 14,
+    paddingVertical:14,
   },
   label: {
     marginBottom: 8,
     color: colors.blueText,
     fontFamily: 'Montserrat',
     fontSize: 14,
-    fontWeight:'500',
+    fontWeight: '500',
   },
   inputContainer: {
     borderWidth: 1,
     borderRadius: 14,
     borderColor: colors.inputborder,
     paddingHorizontal: 14,
-    paddingVertical:6,
+    paddingVertical: 6,
     flexDirection: 'row',
     alignItems: 'center',
   },

@@ -11,4 +11,5 @@ export const colors = {
   grey: '#DADADA',
   produtText: '#606060',
   priceText: '#303030',
+  categoryLable: '#999999',
 };

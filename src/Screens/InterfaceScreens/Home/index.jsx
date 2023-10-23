@@ -11,13 +11,33 @@ import {products} from '../../../Data/Products';
 
 const Home = () => {
   const [openSearchInput, setOpenSearchInput] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState();
+  const [ProductList, setProductList] = useState(products);
 
   const toogleSearchInput = () => {
     setOpenSearchInput(!openSearchInput);
   };
 
+  useEffect(() => {
+    if (selectedCategory) {
+      let filteredProducts = products.filter(
+        product => product.category === selectedCategory,
+      );
+      setProductList(filteredProducts);
+    } else {
+      setProductList(products);
+    }
+  }, [selectedCategory]);
+
   const renderListItem = ({item}) => {
-    return <CategoryBox title={item?.title} image={item?.image} />;
+    return (
+      <CategoryBox
+        title={item?.title}
+        image={item?.image}
+        onPress={() => setSelectedCategory(item.id)}
+        isSelected={item.id === selectedCategory}
+      />
+    );
   };
 
   const renderProducts = ({item}) => {
@@ -35,7 +55,7 @@ const Home = () => {
 
         {openSearchInput ? (
           <View>
-            <Input placeholder="Enter Keyword" />
+            <Input placeholder="Type Your Keyword" />
           </View>
         ) : null}
 
@@ -49,7 +69,7 @@ const Home = () => {
         />
 
         <FlatList
-          data={products}
+          data={ProductList}
           renderItem={renderProducts}
           numColumns={2}
           keyExtractor={item => item.id}
