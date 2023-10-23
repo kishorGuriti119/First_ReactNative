@@ -8,4 +8,5 @@ export const colors = {
   googleAuthBackground: '#3F4A59',
   white: '#FFFFFF',
   fonttextColor: '#303030',
+  grey: '#DADADA',
 };
