@@ -55,7 +55,7 @@ const Home = () => {
 
         {openSearchInput ? (
           <View>
-            <Input placeholder="Enter Keyword" />
+            <Input placeholder="Type Your Keyword" />
           </View>
         ) : null}
 
