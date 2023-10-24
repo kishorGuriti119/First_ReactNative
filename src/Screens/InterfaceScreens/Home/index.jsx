@@ -13,21 +13,41 @@ const Home = () => {
   const [openSearchInput, setOpenSearchInput] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState();
   const [ProductList, setProductList] = useState(products);
+  const [keyWord, setKeyWord] = useState('');
+
+  console.log('keyword ', keyWord);
 
   const toogleSearchInput = () => {
     setOpenSearchInput(!openSearchInput);
   };
 
   useEffect(() => {
-    if (selectedCategory) {
+    if (selectedCategory && !keyWord) {
       let filteredProducts = products.filter(
         product => product.category === selectedCategory,
+      );
+      setProductList(filteredProducts);
+    } else if (selectedCategory && keyWord) {
+      let filteredProducts = products.filter(
+        product =>
+          product.category === selectedCategory &&
+          product.title
+            ?.toLocaleLowerCase()
+            .includes(keyWord?.toLocaleLowerCase()),
+      );
+
+      setProductList(filteredProducts);
+    } else if (!selectedCategory && keyWord) {
+      let filteredProducts = products.filter(product =>
+        product.title
+          ?.toLocaleLowerCase()
+          .includes(keyWord?.toLocaleLowerCase()),
       );
       setProductList(filteredProducts);
     } else {
       setProductList(products);
     }
-  }, [selectedCategory]);
+  }, [selectedCategory, keyWord]);
 
   const renderListItem = ({item}) => {
     return (
@@ -55,7 +75,10 @@ const Home = () => {
 
         {openSearchInput ? (
           <View>
-            <Input placeholder="Type Your Keyword" />
+            <Input
+              placeholder="Type Your Keyword"
+              handelChange={value => setKeyWord(value)}
+            />
           </View>
         ) : null}
 
