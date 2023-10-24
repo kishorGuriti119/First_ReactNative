@@ -5,9 +5,13 @@ import {products} from '../../../Data/Products';
 import FavoriteItem from '../../../Components/FavoriteItem';
 import AppHeader from '../../../Components/AppHeader';
 
-const Favorities = () => {
+const Favorities = ({navigation}) => {
+  const onFavItemClick = product => {
+    navigation.navigate('ProductDetails', {product});
+  };
+
   const renderFavoriteItems = ({item}) => {
-    return <FavoriteItem {...item} />;
+    return <FavoriteItem {...item} onPress={() => onFavItemClick(item)} />;
   };
 
   return (

@@ -4,10 +4,10 @@ import AppHeader from '../AppHeader';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {style} from './style';
 
-const FavoriteItem = ({id, title, image, category, price}) => {
+const FavoriteItem = ({id, title, image, category, price, onPress}) => {
   console.log(image);
   return (
-    <Pressable>
+    <Pressable onPress={onPress}>
       <View style={style.favItemContainer}>
         <Image source={{uri: image}} style={style.ImageStyle} />
         <View style={style.favItemDetails}>
