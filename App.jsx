@@ -20,7 +20,7 @@ import Tabs from './src/Components/Tabs';
 const Stack = createNativeStackNavigator();
 
 function App() {
-  const isLoggedIn = 'k';
+  const isLoggedIn = '';
 
   const Mytheme = {
     dark: false,
