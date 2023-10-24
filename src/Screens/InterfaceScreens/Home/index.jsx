@@ -75,7 +75,7 @@ const Home = () => {
           <View>
             <Input
               placeholder="Type Your Keyword"
-              handelChange={value => setKeyWord(value)}
+              onChangeText={value => setKeyWord(value)}
             />
           </View>
         ) : null}
