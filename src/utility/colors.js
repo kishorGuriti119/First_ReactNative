@@ -13,4 +13,5 @@ export const colors = {
   priceText: '#303030',
   categoryLable: '#999999',
   favItemBorderLine: '#F0F0F0',
+  bookmarkBackground: '#F0F0F0',
 };

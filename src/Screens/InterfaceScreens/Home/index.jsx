@@ -9,7 +9,7 @@ import {CategoryList} from '../../../Data/CategoryList';
 import CategoryBox from '../../../Components/CategoryBox';
 import {products} from '../../../Data/Products';
 
-const Home = () => {
+const Home = ({navigation}) => {
   const [openSearchInput, setOpenSearchInput] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState();
   const [ProductList, setProductList] = useState(products);
@@ -58,8 +58,14 @@ const Home = () => {
     );
   };
 
+  const OnProductClick = product => {
+    navigation.navigate('ProductDetails', {product});
+  };
+
   const renderProducts = ({item}) => {
-    return <ProductItem item={{...item}} />;
+    return (
+      <ProductItem item={{...item}} onPress={() => OnProductClick(item)} />
+    );
   };
 
   return (
