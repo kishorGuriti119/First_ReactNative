@@ -1,13 +1,28 @@
 import React from 'react';
-import {SafeAreaView, ScrollView, Text} from 'react-native';
-import { style } from './style';
+import {FlatList, SafeAreaView, View, ScrollView, Text} from 'react-native';
+import {style} from './style';
+import {products} from '../../../Data/Products';
+import FavoriteItem from '../../../Components/FavoriteItem';
+import AppHeader from '../../../Components/AppHeader';
 
 const Favorities = () => {
+  const renderFavoriteItems = ({item}) => {
+    return <FavoriteItem {...item} />;
+  };
+
   return (
     <SafeAreaView>
-      <ScrollView style={style.Container}>
-        <Text>Favorities</Text>
-      </ScrollView>
+      <View style={style.Container}>
+        <AppHeader title="Favorites" />
+
+        <FlatList
+          data={products}
+          renderItem={renderFavoriteItems}
+          keyExtractor={item => item.index}
+          showsVerticalScrollIndicator={false}
+          ListFooterComponent={<View style={{height: 100}} />}
+        />
+      </View>
     </SafeAreaView>
   );
 };

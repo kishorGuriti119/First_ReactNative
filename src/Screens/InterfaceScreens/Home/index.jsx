@@ -15,8 +15,6 @@ const Home = () => {
   const [ProductList, setProductList] = useState(products);
   const [keyWord, setKeyWord] = useState('');
 
-  console.log('keyword ', keyWord);
-
   const toogleSearchInput = () => {
     setOpenSearchInput(!openSearchInput);
   };
