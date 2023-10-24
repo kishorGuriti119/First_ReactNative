@@ -7,7 +7,6 @@ const Input = ({label, placeholder, isPassword, handelChange}) => {
 
   const eyePress = () => {
     setIsPasswordVisible(!isPasswordVisible);
-    console.log('eye clicked');
   };
 
   return (

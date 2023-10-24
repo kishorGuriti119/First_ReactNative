@@ -3,7 +3,6 @@ import {Pressable, Image, Text} from 'react-native';
 import {style} from './style';
 
 const ProductItem = ({item}) => {
-  //   console.log(item.image);
   return (
     <Pressable style={style.container}>
       <Image source={{uri: item?.image}} style={style.ProductImage} />
