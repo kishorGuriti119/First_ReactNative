@@ -42,7 +42,7 @@ const ProductDetails = ({route, navigation}) => {
       <View style={style.footerContainer}>
         <Pressable style={style.bookmarkContainer}>
           <Image
-            source={require('../../../assets/bookmark_active.png')}
+            source={require('../../../assets/bookmark.png')}
             style={style.bookmarkIcon}
           />
         </Pressable>

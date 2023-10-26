@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
-import {View, Image, StyleSheet} from 'react-native';
+import {View, Image} from 'react-native';
 import Carousel, {Pagination} from 'react-native-snap-carousel';
+
 import {style} from './style';
 import {Dimensions} from 'react-native';
 
@@ -36,7 +37,6 @@ const Image_Carousel = props => {
         dotStyle={style.paginationDot}
         inactiveDotOpacity={0.3}
         inactiveDotScale={1}
-       
       />
     </>
   );
